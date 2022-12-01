@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>Trash Classification</title>
+	<!-- <link rel="shortcut icon" type="image/png" href="logo.png"> -->
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<style>
+    body{
+        background: url("https://img.freepik.com/premium-photo/home-garbage-collection-concept-model-home-containers-separate-collection-garbage-gray-background-with-copy-space-banner_106035-1038.jpg?w=2000") center center no-repeat;
+        background-size: cover;
+        object-fit: contain;
+        
+        
+    }
+    .page{
+        /* height: 20rem; */
+        margin-left: 10rem;
+    }
+    .main{
+        /* justify-content: center; */
+    }
+</style>
+</head>
+
+<body> 
+    <div class="page" style="border-radius: 10px; background-color: rgb(255, 255, 255);
+    
+   
+    ">
+        <h1 class="heading" style="margin-left: 2rem;">TrashNet</h1>
+        <br>
+        <div class="main"  >
+        <p>Enter your input image:</p>
+        <p>     CATEGORIES=['cardboard','glass','metal','paper','plastic','trash']<br>
+        <br> further split to Bio-degradable and non Bio-degradable<br>
+        <form  method = "POST" id="form"  action=""
+             enctype = "multipart/form-data">
+            <label>
+                <input type="file" accept="image/png, image/jpeg, image/gif" name="image"/>
+            </label>
+            
+        
+            <input type="submit" style="padding: 10px 20px; outline:none; border:none; border-radius:10px; background-color: rgb(239, 254, 249); font-weight: bold;" value="Submit">
+            
+        {% if error: %}
+            <p class=error><strong>Error:</strong> {{ error }} </p>
+            {% endif %}
+        </form>
+        
+    
+        {% if answer is not none: %}
+        <p style="text-align: center;"><label name='answer'>Classified: {{ answer }}</label><br /></p>
+        {% endif %}
+    </div>
+</div>
+    
+</body>
